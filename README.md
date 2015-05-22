@@ -11,3 +11,4 @@ yay! :)
 ===========
 ##### What is the best format(or procedure) to attach simple shaped images to view? PDF, PNG, SVG?
 
+https://github.com/metasmile/jessi-playground/wiki/Compare-performance-in-real-device-:-PNG-vs-PDF-vs-SVG
