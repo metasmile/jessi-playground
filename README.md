@@ -1,12 +1,6 @@
-# Welcome to my dirty test room.
+# Welcome to my dirty dev room.
 
-This xcode project is not a TDD project. It contains only some dirty but well-tested runnable code snippets, utils, benchmarking results for solving common or mission critical issues or just curious while proceeding project. We'll write topic by topic in this place to be continued.
-
-And yes, sure, don't forgot after clone into your MBP,
-```
-pod install
-```
-yay! :)
+Here are only some dirty but well-tested runnable code snippets, utils, benchmarking results, studying for solving common or mission critical issues or just curious while proceeding project. I'll write topic by topic in this place to be continued. yay! :)
 
 ===========
 ##### What is the best format(or procedure) to attach simple shaped images to view? PDF, PNG, SVG?
