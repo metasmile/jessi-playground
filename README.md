@@ -26,11 +26,11 @@ https://github.com/metasmile/jessi-playground/wiki/Compare-performance-in-real-d
 - (__typed_iterable(NSArray,UIView *))views; 
 
 - (NSArray *)views; // <= ios8.x
-- (NSArray <UIView>*)views; // >= ios9.x
+- (NSArray <UIView *> *)views; // >= ios9.x
 
 // ex usage of '__ktyped_iterable'
 - (__ktyped_iterable(NSArray,UIView *))views; 
 
 - (NSArray *)views; // <= ios8.x
-- (NSArray <__kindof UIView>*)views; // >= ios9.x
+- (NSArray <__kindof UIView *> *)views; // >= ios9.x
 ```
