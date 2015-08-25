@@ -9,9 +9,10 @@ https://github.com/metasmile/jessi-playground/wiki/Compare-performance-in-real-d
 
 ===========
 ##### A Macro for capability of definition typed iterable object. (ios 9.x)
-
+```objective-c
 #if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
 #define __typed_iterable(iterablesCls, elementsType) iterablesCls<elementsType> *
 #else
 #define __typed_iterable(iterablesCls, elementsType) iterablesCls *
 #endif
+```
