@@ -15,4 +15,22 @@ https://github.com/metasmile/jessi-playground/wiki/Compare-performance-in-real-d
 #else
 #define __typed_iterable(iterablesCls, elementsType) iterablesCls *
 #endif
+
+#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
+#define __ktyped_iterable(iterablesCls, elementsType) iterablesCls<__kindof elementsType> *
+#else
+#define __ktyped_iterable(iterablesCls, elementsType) iterablesCls *
+#endif
+
+// ex usage of '__typed_iterable'
+- (__typed_iterable(NSArray,UIView *))views; 
+
+- (NSArray *)views; // <= ios8.x
+- (NSArray <UIView>*)views; // >= ios9.x
+
+// ex usage of '__ktyped_iterable'
+- (__ktyped_iterable(NSArray,UIView *))views; 
+
+- (NSArray *)views; // <= ios8.x
+- (NSArray <__kindof UIView>*)views; // >= ios9.x
 ```
