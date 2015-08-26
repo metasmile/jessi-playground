@@ -12,25 +12,25 @@ https://github.com/metasmile/jessi-playground/wiki/Compare-performance-in-real-d
 ```objective-c
 #if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
 #define __typed_collection(iterablesCls, elementsType) iterablesCls<elementsType> *
-#else
-#define __typed_collection(iterablesCls, elementsType) iterablesCls *
-#endif
-
-#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
 #define __typed_collection_knd(iterablesCls, elementsType) iterablesCls<__kindof elementsType> *
 #else
+#define __typed_collection(iterablesCls, elementsType) iterablesCls *
 #define __typed_collection_knd(iterablesCls, elementsType) iterablesCls *
 #endif
 
-// ex usage of '__typed_collection'
+/*
+# ex usage of '__typed_collection'
+
 - (__typed_collection(NSArray,UIView *))views; 
 
 - (NSArray *)views; // <= ios8.x
 - (NSArray <UIView *> *)views; // >= ios9.x
 
-// ex usage of '__typed_collection_knd'
+# ex usage of '__typed_collection_knd'
+
 - (__typed_collection_knd(NSArray,UIView *))views; 
 
 - (NSArray *)views; // <= ios8.x
 - (NSArray <__kindof UIView *> *)views; // >= ios9.x
+*/
 ```
