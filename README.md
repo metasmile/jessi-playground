@@ -8,7 +8,7 @@ Here are only some dirty but well-tested runnable code snippets, utils, benchmar
 https://github.com/metasmile/jessi-playground/wiki/Compare-performance-in-real-device-:-PNG-vs-PDF-vs-SVG
 
 ===========
-##### A Macro for capability of definition typed collection object. (ios 9.x)
+##### A macro for capability of definition typed collection object. (ios 9.x)
 ```objective-c
 #if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
 #define __typed_collection(iterablesCls, elementsType) iterablesCls<elementsType> *
@@ -33,4 +33,33 @@ https://github.com/metasmile/jessi-playground/wiki/Compare-performance-in-real-d
 - (NSArray *)views; // <= ios8.x
 - (NSArray <__kindof UIView *> *)views; // >= ios9.x
 */
+```
+===========
+##### A macro for writing deallocation method in category class.
+
+```objective-c
+#define BEGIN_DEALLOC_CATEGORY + (void)load {\
+        SEL originalSelector = NSSelectorFromString(@"dealloc");\
+        SEL overrideSelector = @selector(__dealloc__);\
+        Method originalMethod = class_getInstanceMethod(self, originalSelector);\
+        Method overrideMethod = class_getInstanceMethod(self, overrideSelector);\
+        if (class_addMethod(self, originalSelector, method_getImplementation(overrideMethod), method_getTypeEncoding(overrideMethod))) {\
+            class_replaceMethod(self, overrideSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));\
+        } else {\
+            method_exchangeImplementations(originalMethod, overrideMethod);\
+        }\
+    }\
+\
+- (void)__dealloc__{\
+
+#define END_DEALLOC_CATEGORY }
+```
+```objective-c
+@implementation UIView (STUtil)
+
+BEGIN_DEALLOC_CATEGORY
+    // dealloc category
+END_DEALLOC_CATEGORY
+
+@end
 ```
