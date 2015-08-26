@@ -8,7 +8,7 @@ Here are only some dirty but well-tested runnable code snippets, utils, benchmar
 https://github.com/metasmile/jessi-playground/wiki/Compare-performance-in-real-device-:-PNG-vs-PDF-vs-SVG
 
 ===========
-##### A macro for capability of definition typed collection object. (ios 9.x)
+##### A macro for compatibility of definition typed collection object. (ios 9.x)
 ```objective-c
 #if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000
 #define __typed_collection(iterablesCls, elementsType) iterablesCls<elementsType> *
