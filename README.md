@@ -63,3 +63,13 @@ END_DEALLOC_CATEGORY
 
 @end
 ```
+===========
+##### A macro for finding a parent UIViewController in UIView.
+```objective-c
+#define UIViewParentController(__view) ({ \
+    UIResponder *__responder = __view; \
+    while ([__responder isKindOfClass:[UIView class]]) \
+        __responder = [__responder nextResponder]; \
+    (UIViewController *)__responder; \
+})
+```
